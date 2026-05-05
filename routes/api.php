@@ -8,8 +8,7 @@ use App\Http\Controllers\Api\ProductController;
 // Jalur Publik (Gak perlu login)
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/products', [ProductController::class, 'index']); // Biar guest bisa liat katalog
-
+Route::get('/products', [ProductController::class, 'index']);
 // Jalur Dilindungi (Wajib pakai Token Sanctum)
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/checkout', [ProductController::class, 'checkout']);
